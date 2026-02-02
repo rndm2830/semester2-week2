@@ -11,7 +11,6 @@
 Show book title, member name, and loan date.
 -- write your sql code here
 SELECT Books.title, Members.name, Loans.loan_date
-FROM Books 
+FROM Loans 
 LEFT JOIN Loans ON Books.id = loans.book_id
 LEFT JOIN Members ON loans.member_id = members.id
-ORDER BY department;
