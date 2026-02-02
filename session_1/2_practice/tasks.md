@@ -10,7 +10,7 @@ DATE('now', '-14 days') /* you can add or subtract days */
 ```
 
 
-1. **List all loans**  
+<!-- 1. **List all loans**  
 Show book title, member name, and loan date.
 
 2. **Books and loans**  
@@ -38,4 +38,4 @@ For each library branch, show the total number of loans for books in that branch
 List members who currently have at least one active loan.
 
 10. **Books and loans report**  
-Show all books and all loans, including books that were never loaned. Include a column classifying each row as “Loaned book” or “Unloaned book.”. You will need to look up how to do this (hint: a case statement would work).
+Show all books and all loans, including books that were never loaned. Include a column classifying each row as “Loaned book” or “Unloaned book.”. You will need to look up how to do this (hint: a case statement would work). -->
