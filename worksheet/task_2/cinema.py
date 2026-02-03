@@ -22,7 +22,7 @@ def customer_tickets(conn, customer_id):
             SELECT f.title, s.screen, t.price 
             FROM tickets t
             JOIN screenings s ON t.screening_id = s.screening_id
-            JOIN films f ON s.film_id = s.film_id
+            JOIN films f ON s.film_id = f.film_id
             WHERE t.customer_id=?
             ORDER BY f.title ASC
             '''
@@ -40,7 +40,7 @@ def screening_sales(conn):
     Order results by tickets_sold descending.
     """
     query = '''
-            SELECT s.screening_id, f.title, COUNT(t.id) AS tickets_sold
+            SELECT s.screening_id, f.title, COUNT(t.ticket_id) AS tickets_sold
             FROM screenings s
             JOIN films f ON s.film_id = f.film_id
             LEFT JOIN tickets t ON s.screening_id = t.screening_id
