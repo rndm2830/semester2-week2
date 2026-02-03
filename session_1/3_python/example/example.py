@@ -35,9 +35,9 @@ def search_for_student(db):
     try: # we need to convert the id number to int, and we can use this to decide id or name.
         choice = int(choice)
         query = '''
-                SELECT s.department_id, s.name, d.name
+                SELECT s.id, s.name, d.name
                 FROM Students s JOIN Department d
-                ON s.id=d.id
+                ON s.department_id=d.id
                 WHERE s.id=?
                 '''
     except:
@@ -111,11 +111,19 @@ def view_student_by_course(db):
 
 # Have a go at writing this function!
 def review_student_numbers(db):
-    '''
-    Print the number of students registered for each course.    
-    :param db: Database object to query
-    '''
-    pass
+    #'''
+    #Print the number of students registered for each course.    
+    #:param db: Database object to query
+    #'''
+    query = '''
+            SELECT SUM(s.name) AS num_students, Course.name FROM
+            Courses c
+            LEFT JOIN StudentCourses sc ON
+            Course.id=sc.course_id
+            JOIN Students s ON
+            sc.student_id = s.id
+            WHERE sc.course_id=?;
+            '''
 
 def main():
 
